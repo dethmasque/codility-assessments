@@ -19,7 +19,7 @@ Supported sets:
 The test cards are hard-coded and can be updated in 
 `main()`. 
 
-From the repo root, `go run ./main.go`
+From this directory, `go run ./main.go`
 
 ```
 > go run .\main.go
