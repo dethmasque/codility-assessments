@@ -82,7 +82,8 @@ func Solution(cards []string) Results {
         if !valid {
             return Results{"Received invalid playing card. No best set.", []string{}}
         }
-        fmt.Printf("Rank parsed as: %s Suit parsed as: %s \n", rank, suit)
+        // for debugging: 
+        // fmt.Printf("Rank parsed as: %s Suit parsed as: %s \n", rank, suit)
         // add card to map of received cards by rank
         rankCount[rank] = append(rankCount[rank], card)
         // add card to map of received cards by suit
@@ -94,7 +95,8 @@ func Solution(cards []string) Results {
         // store unique parsed ranks at their mapped int value
         uniqueRanks[rankVal] = rank
     }
-    fmt.Printf("Received %d cards.\n", len(cards))
+    // for debugging: 
+    // fmt.Printf("Received %d cards.\n", len(cards))
 
     // in descending order of precedence because we want
     // to return the best card set given the hand
@@ -239,7 +241,7 @@ func main() {
     
     // loop over test hands, print results
     for _, test := range testCases {
-        fmt.Printf("Executing test case: %s", test.testName)
+        fmt.Printf("Executing test case: %s \n", test.testName)
         bestSet := Solution(test.cards)
         if len(bestSet.selectedCards) > 0 {
             fmt.Printf("Your best set from the given hand is a %s. \n", bestSet.setName)
