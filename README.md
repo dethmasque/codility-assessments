@@ -85,7 +85,6 @@ Rank parsed as: J Suit parsed as: D
 Received 4 cards.
 Your best set from the given hand is a pair.
 The selected cards are: [JH JD]
-PS C:\Users\thism\Git\codility-assessments>
 ```
 
 Non-ASCII characters are not supported. Hand input is 
