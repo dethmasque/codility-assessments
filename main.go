@@ -4,7 +4,6 @@ import (
     "fmt"
     "sort"
     "strings"
-    "time"
 )
 
 // best set name and the chosen matching cards
@@ -216,25 +215,32 @@ func Solution(cards []string) Results {
 }
 
 func main() {
+    type hand []string
+
+    type testCase struct {
+        testName string
+        cards    hand
+    }
+    
     // define test hands to cover each supported set and a couple
     // of error conditions
-    type hand []string
-    hand1 := hand{"10H", "10C", "10S", "2H", "2S", "6S", "KH"}    // triple and pair
-    hand2 := hand{"KS"}                                           // single
-    hand3 := hand{"3H", "4S", "5S", "6C", "7C", "8H", "AC", "AS"} // five in a row and a pair
-    hand4 := hand{"2D", "4D", "6D", "8D", "10D", "QD"}            // five of a suit
-    hand5 := hand{"JH", "JD", "JC", "7H", "7C", "8H", "8C"}       // triple and pair (two pairs)
-    hand6 := hand{"5H", "5D", "5C", "5S", "9D"}                   // triple
-    hand7 := hand{}                                               // no hand
-    hand8 := hand{"4", "D"}                                       // bad length (short)
-    hand9 := hand{"324S", "502C"}                                 // bad length (long)
-    hand10 := hand{"3S", "3H", "JH", "JD"}                        // two pairs
-
-    testHands := []hand{hand1, hand2, hand3, hand4, hand5, hand6, hand7, hand8, hand9, hand10}
-
+    var testCases = []testCase{
+        {"Triple and a pair", hand{"10H", "10C", "10S", "2H", "2S", "6S", "KH"}},
+        {"Single", hand{"KS"}},
+        {"Five in a row and a pair", hand{"3H", "4S", "5S", "6C", "7C", "8H", "AC", "AS"}},
+        {"Five of a suit", hand{"2D", "4D", "6D", "8D", "10D", "QD"}},
+        {"Triple and a pair", hand{"JH", "JD", "JC", "7H", "7C", "8H", "8C"}},
+        {"Triple", hand{"5H", "5D", "5C", "5S", "9D"}},
+        {"No hand", hand{}},
+        {"Bad card length (short)", hand{"4", "D"}},
+        {"Bad card lenth (long)", hand{"324S", "502C"}},
+        {"Two pairs", hand{"3S", "3H", "JH", "JD"}},
+    }
+    
     // loop over test hands, print results
-    for _, hand := range testHands {
-        bestSet := Solution(hand)
+    for _, test := range testCases {
+        fmt.Printf("Executing test case: %s", test.testName)
+        bestSet := Solution(test.cards)
         if len(bestSet.selectedCards) > 0 {
             fmt.Printf("Your best set from the given hand is a %s. \n", bestSet.setName)
             fmt.Printf("The selected cards are: %s \n", bestSet.selectedCards)
@@ -242,6 +248,4 @@ func main() {
             fmt.Println(bestSet.setName) // error message stored as setName
         }
     }
-
-    time.Unix()
 }
