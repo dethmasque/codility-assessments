@@ -56,4 +56,29 @@ Given:
 - Consider using a **greedy algorithm**.
 - Try **sorting planes by their latest landing time** (`B[i]`) and then selecting non-overlapping windows.
 
+# Solution
 
+## Output
+
+```
+dethmasque@MacBookPro max-landings % go run main.go                            
+Checking plane 0 with start 4 and end 4 
+Found free landing time at 4 
+Checking plane 1 with start 4 and end 5 
+Found free landing time at 5 
+Checking plane 2 with start 0 and end 1 
+Found free landing time at 0 
+Checking plane 3 with start 1 and end 3 
+Found free landing time at 1 
+Checking plane 4 with start 10 and end 12 
+Found free landing time at 10 
+Checking plane 5 with start 2 and end 5 
+Found free landing time at 2 
+Checking plane 6 with start 2 and end 7 
+Found free landing time at 3 
+Checking plane 7 with start 8 and end 15 
+Found free landing time at 8 
+Checking plane 8 with start 0 and end 15 
+Found free landing time at 6 
+Number of planes that can land safely: 9 
+```
