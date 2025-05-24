@@ -1,7 +1,5 @@
 # Air Traffic Control Problem — “Runway Scheduler”
 
-> *NOTE*: This problem is inspired from Codility's [Grocery Store Problem](https://codility.com/media/train/solution-grocery-store.pdf)
-
 ## Task Description
 
 An airport has a single runway and multiple planes scheduled to land. Each plane is assigned a **landing window**, defined by an earliest time it can land and the latest time it must land.
